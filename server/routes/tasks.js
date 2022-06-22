@@ -4,7 +4,7 @@ const { translateAliases } = require("../models/task");
 const task = require("../models/task");
 const router = express.Router();
 
-router.post("/",async()=>{
+router.post("/",async(req, res)=>{
     try {
         const task = await new Task(req.body).save();
         res.send(task);

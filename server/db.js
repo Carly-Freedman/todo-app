@@ -1,16 +1,12 @@
-const mongoose = require(mongoose);
+const mongoose = require("mongoose");
 
-module.exports = async ()=> {
-    try{
-        const connectionParams = {
-            useNewUrlParser: true,
-            useCreateIndex: true,
-            useUnifiedTopology: true,
-        };
-        await mongoose.connect("mongodb://localhost/todo-app", connectionParams);
-        console.log("Connected to database.")
+module.exports = async () => {
+    try {
+        await mongoose.connect(
+            "mongodb+srv://admin:pass@cluster0.zx6ptxj.mongodb.net/?retryWrites=true&w=majority"
+        );
+        console.log("Connected to database.");
+    } catch (error) {
+        console.log("Could not connect to database.", error);
     }
-    catch (error) {
-        console.log("Could not connect to database.", error)
-    }
-}
+};
